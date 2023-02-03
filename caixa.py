@@ -10,14 +10,14 @@ class Caixa():
     def abastecerCaixa(self, nota, quantia):
         self.__notas[str(nota)] += quantia
         self.__quantiaTotal += nota * quantia
-        print("Caixa abastecido com "+str(quantia)+" nota(s) de "+str(nota))
+        return("Caixa abastecido com "+str(quantia)+" nota(s) de "+str(nota))
 
     def sacarQuantia(self, quantia):
         retorno = self.__avaliarSaque(quantia)
         if (retorno):
-            self.__informarNotasSaque(retorno)
+            return(self.__informarNotasSaque(retorno))
         else:
-            print("Saque Rejeitado")
+            return("Saque Rejeitado")
     
     def __avaliarSaque(self, quantia):
         if quantia > self.__quantiaTotal:
@@ -77,7 +77,8 @@ class Caixa():
         return False if +sobra else True
 
     def __informarNotasSaque(self, saque):
-        print("Notas liberadas no saque:")
+        resposta = "Notas liberadas no saque:\n"
         for nota, quantidade in saque.items():
             if quantidade:
-                print(str(quantidade)+" de "+nota+" reais")
+                resposta = resposta + str(quantidade)+" de "+nota+" reais\n"
+        return resposta
