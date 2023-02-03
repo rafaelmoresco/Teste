@@ -18,7 +18,9 @@ while True:
             x = int(x)
             y = int(y)
             if (x):
+                print()
                 print(caixa.abastecerCaixa(x,y))
+                print()
             else:
                 break
     elif x == 2:
@@ -26,6 +28,7 @@ while True:
             print("Digite o valor desejado (0 para sair): ", end='')
             x = int(input())
             if (x):
+                print()
                 print(caixa.sacarQuantia(x))
             else:
                 break
